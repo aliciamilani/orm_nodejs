@@ -2,10 +2,14 @@
 module.exports = (sequelize, DataTypes) => {
   const Pessoas = sequelize.define('Pessoas', {
     nome: DataTypes.STRING,
-    ativo: DataTypes.BOOLEAN,
+    ativa: DataTypes.BOOLEAN,
     email: DataTypes.STRING,
     role: DataTypes.STRING
-  }, {});
+  }, { 
+    paranoid: true, 
+    defaultScope:{
+      where: { ativa: true}
+    }});
   Pessoas.associate = function(models) {
     Pessoas.hasMany(models.Turmas, {
       foreignKey: 'docente_id'
