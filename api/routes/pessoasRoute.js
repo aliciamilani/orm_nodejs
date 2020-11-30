@@ -3,14 +3,14 @@ const PessoaController = require('../controllers/PessoaController')
 
 const router = Router()
 
-router.get('/pessoas', PessoaController.pegaPessoasAtivas)
+router.get('/pessoas', PessoaController.pegaTodasAsPessoas)
 router.post('/pessoas', PessoaController.criarPessoa)
 
 router.get('/pessoas/:id', PessoaController.pegaUmaPessoa)
 router.put('/pessoas/:id', PessoaController.atualizaPessoa)
 router.delete('/pessoas/:id', PessoaController.apagaPessoa)
 
-router.get('/pessoas/todos', PessoaController.pegaTodasAsPessoas)
+router.get('/pessoas/ativas', PessoaController.pegaPessoasAtivas)
 
 router.post('/pessoas/:estudanteId/matricula', PessoaController.criaMatricula)
 router.get('/pessoas/:estudanteId/matricula', PessoaController.pegaMatriculas)
